@@ -5,4 +5,4 @@ typedef struct data_type{
     char name;
     int arriveMin;
     int leaveMin;
-};
+}Lines;
