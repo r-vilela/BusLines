@@ -1,6 +1,6 @@
 #include "bus.h"
 
-typedef struct data_type{
+struct data_type{
     int id;
     char name;
     int arriveMin;
