@@ -19,7 +19,6 @@ typedef struct node {
 
 typedef struct {
   Node *head;
-  Node *tail;
 } DoubleList;
 
 /**
@@ -40,7 +39,7 @@ void create(DoubleList *list);
  * ser inserido na lista.
  * @return retorna 1 se conseguir inserir ou 0 caso nao consiga.
  */
-int insert(DoubleList *list, DataType data);
+int insert(DoubleList *list, DataType *data);
 
 /**
  * @brief Remove um elemento da lista.
@@ -48,7 +47,13 @@ int insert(DoubleList *list, DataType data);
  * deseja remover da lista.
  * @return retorna 1 se conseguir remver ou 0 casa nao consiga.
  */
-int dell(DoubleList *list, DataType data);
+int deleteData(DoubleList *list, DataType *data);
+
+/**
+ * @brief Remover elemento.
+ * @param Recebe como parameteo o no para ser removido
+ */
+void removeData(Node *n);
 
 /**
  * @brief Procurar elemento na lista.
@@ -57,14 +62,18 @@ int dell(DoubleList *list, DataType data);
  * @return Retorna um ponteiro constante do elemento achado, evitando que o
  * conteudo seja alterado, ou NULL, caso o elemento nao seja encontrado.
  */
-DataType const *search(DoubleList *list, DataType data);
+DataType const *search(DoubleList *list, DataType *data);
 
 /**
  * @brief Compara elementos na lista
  * @warning esse funcao sera usada em nas operacoes da lista! Eh importante
  * defini-la antes de usar.
  */
-int comp(DataType data1, DataType data2);
+int comp(DataType *data1, DataType *data2);
+
+void show(DoubleList *list);
+
+void showData(DataType *data);
 
 /** @} */
 
