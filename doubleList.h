@@ -39,7 +39,7 @@ void create(DoubleList *list);
  * ser inserido na lista.
  * @return retorna 1 se conseguir inserir ou 0 caso nao consiga.
  */
-int insert(DoubleList *list, DataType *data);
+int add(DoubleList *list, DataType *data);
 
 /**
  * @brief Remove um elemento da lista.

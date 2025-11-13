@@ -13,10 +13,13 @@ int add(DoubleList *list, DataType *data) {
   if (list->head == NULL) {
     list->head = n;
     n->next = list->head;
+    n->prev = list->head;
   } else {
     n->next = list->head;
     list->head->prev->next = n;
     list->head->prev = n;
+    n->prev = list->head->prev;
+    n->next = list->head;
     list->head = n;
   }
   return 1;

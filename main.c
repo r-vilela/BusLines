@@ -29,7 +29,9 @@ int main() {
   BusLines b3;
   b3.value = 3;
 
-  insert(&L, &b1);
+  add(&L, &b1);
+  add(&L, &b2);
+  add(&L, &b3);
 
   show(&L);
 
