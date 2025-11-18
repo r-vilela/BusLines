@@ -61,7 +61,17 @@ void removeNode(Node *n) {
   free(n);
 }
 
-DataType const *search(DoubleList *list, DataType *data);
+DataType const *search(DoubleList *list, DataType *data){
+  Node *n = list->head;
+
+  for (int i = 0; i < list->size; i++, n = n->next) {
+      if(comp(n->info, data))
+          return n->info;
+  }
+
+  return NULL;
+}
+
 
 void show(DoubleList *list) {
   Node *n = list->head;
