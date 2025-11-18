@@ -55,7 +55,7 @@ int removeData(DoubleList *list, DataType *data) {
   return 0;
 }
 
-void removeData(Node *n) {
+void removeNode(Node *n) {
   n->prev->next = n->next;
   n->next->prev = n->prev;
   free(n);
