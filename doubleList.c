@@ -61,12 +61,12 @@ void removeNode(Node *n) {
   free(n);
 }
 
-DataType const *search(DoubleList *list, DataType *data){
+DataType const *search(DoubleList *list, DataType *data) {
   Node *n = list->head;
 
   for (int i = 0; i < list->size; i++, n = n->next) {
-      if(comp(n->info, data))
-          return n->info;
+    if (comp(n->info, data))
+      return n->info;
   }
 
   return NULL;
@@ -83,4 +83,18 @@ void show(DoubleList *list) {
   for (int i = 0; i < list->size; i++, n = n->next)
     showData(n->info);
   printf("\n");
+}
+
+void destroy(DoubleList *list) {
+  if (isEmpty(list))
+    return;
+
+  Node *n = list->head;
+
+  for (int i = 0; i < (list->size); i++,
+           n = list->head, // Node n igual node atual
+           list->head = n->next, // Avanca a cabeca
+           free(n)); // free() no Node n anterrior
+
+  create(list);
 }

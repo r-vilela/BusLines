@@ -68,5 +68,8 @@ int main() {
   else
       printf("Achou %d\n", d2->value);
 
+  destroy(&L);
+
+  show(&L);
   return 0;
 }

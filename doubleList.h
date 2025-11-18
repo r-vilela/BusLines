@@ -101,6 +101,12 @@ void show(DoubleList *list);
  */
 void showData(DataType *data);
 
+/**
+ * @brief Persorre a lista dando free() em todos os elementos.
+ * @param Recebe como parametro 1 ponteiro DoubleList.
+ */
+void destroy(DoubleList *list);
+
 /** @} */
 
 #endif
