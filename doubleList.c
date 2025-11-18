@@ -72,6 +72,7 @@ DataType const *search(DoubleList *list, DataType *data){
   return NULL;
 }
 
+int isEmpty(DoubleList *list) { return (list->size == 0); }
 
 void show(DoubleList *list) {
   Node *n = list->head;
