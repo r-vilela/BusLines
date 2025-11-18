@@ -75,11 +75,12 @@ DataType const *search(DoubleList *list, DataType *data){
 int isEmpty(DoubleList *list) { return (list->size == 0); }
 
 void show(DoubleList *list) {
+  if (isEmpty(list))
+    return;
+
   Node *n = list->head;
 
-  showData(n->info);
-  n = n->next;
-
-  for (n; !comp(n->info, list->head->info); n = n->next)
+  for (int i = 0; i < list->size; i++, n = n->next)
     showData(n->info);
+  printf("\n");
 }
