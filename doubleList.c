@@ -2,7 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void create(DoubleList *list) { list->head = NULL; }
+void create(DoubleList *list) {
+  list->head = NULL;
+  list->size = 0;
+}
 
 int add(DoubleList *list, DataType *data) {
   Node *n = (Node *)malloc(sizeof(Node));
