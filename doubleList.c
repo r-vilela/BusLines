@@ -34,20 +34,24 @@ int add(DoubleList *list, DataType *data) {
   return 1;
 };
 
-int deleteData(DoubleList *list, DataType *data) {
-  Node *n;
+int removeData(DoubleList *list, DataType *data) {
+  if (isEmpty(list))
+    return -1;
 
-  if (comp(list->head->info, data)) {
-    removeData(n);
-    return 1;
-  }
+  Node *n = list->head;
 
-  for (n = list->head->next; !comp(n->info, list->head->info); n = n->next) {
+  for (int i = 0; i < list->size; i++, n = n->next) {
     if (comp(n->info, data)) {
-      removeData(n);
+      if (list->size == 2)
+        list->head = n->next;
+      else if (list->size == 1)
+        list->head = NULL;
+      removeNode(n);
+      list->size -= 1;
       return 1;
     }
   }
+
   return 0;
 }
 
