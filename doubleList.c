@@ -9,22 +9,28 @@ void create(DoubleList *list) {
 
 int add(DoubleList *list, DataType *data) {
   Node *n = (Node *)malloc(sizeof(Node));
+
   if (n == NULL)
     return 0;
+
   n->info = data;
 
-  if (list->head == NULL) {
+  if (isEmpty(list)) {
     list->head = n;
     n->next = list->head;
     n->prev = list->head;
   } else {
     n->next = list->head;
+
     list->head->prev->next = n;
-    list->head->prev = n;
     n->prev = list->head->prev;
+
+    list->head->prev = n;
     n->next = list->head;
+
     list->head = n;
   }
+  list->size += 1;
   return 1;
 };
 
