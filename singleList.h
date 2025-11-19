@@ -1,26 +1,33 @@
+#ifndef SINGLE_LIST_H
+#define SINGLE_LIST_H
 // Lista Simplesmente Encadeada Dinamica
 
-#include <limits>
 typedef struct data Data;
 
-typedef struct node{
+typedef struct nodes{
     Data *info;
-    struct node *prox;
-}Node ;
+    struct nodes *next;
+}NodeS ;
 
 typedef struct{
-    Node *head;
+    NodeS *head;
     int size;
 }SingleList;
 
-void create(SingleList *list);
+void createS(SingleList *list);
 
-int add(SingleList *list, Data *data);
+int addS(SingleList *list, Data *data);
 
-int deleteData(SingleList, Data *data);
+int deleteData(SingleList *list, Data *data);
 
-void show(SingleList *list);
+void showS(SingleList *list);
 
-void showData(Data *data);
+int isEmptyS(SingleList *list);
 
-void destroy(SingleList *list);
+void destroyS(SingleList *list);
+
+int compS(Data *data1, Data *data2);
+
+void showDataS(Data *data);
+
+#endif
