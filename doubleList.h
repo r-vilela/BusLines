@@ -23,16 +23,15 @@
 typedef struct data_type DataType;
 
 typedef struct node {
-    DataType *info;
-    struct node *next;
-    struct node *prev;
+  DataType *info;
+  struct node *next;
+  struct node *prev;
 } Node;
 
 typedef struct {
-    Node *head;
-    int size;
+  Node *head;
+  int size;
 } DoubleList;
-
 
 /**
  * @brief Cria a lista.
@@ -71,6 +70,16 @@ void removeNode(Node *n);
  * conteudo seja alterado, ou NULL, caso o elemento nao seja encontrado.
  */
 DataType const *search(DoubleList *list, DataType *data);
+
+/**
+ * @brief Procurar elemento na lista comecando de Node especifico.
+ * @param Recebe como parametro 1 ponteiro DoubleLIst e o 2 ponteiro DataType,
+ * um que deseja procurar na lista e outro de onde deseja comecar a procurar.
+ * @return Retorna um ponteiro constante do elemento achado, evitando que o
+ * conteudo seja alterado, ou NULL, caso o elemento nao seja encontrado, tanto o
+ * from quanto o to.
+ */
+DataType const *searchFrom(DoubleList *list, DataType *from, DataType *to);
 
 /**
  * @brief Avisa se a lista esta vazia.

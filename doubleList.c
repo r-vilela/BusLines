@@ -1,4 +1,5 @@
 #include "doubleList.h"
+#include "singleList.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -64,9 +65,25 @@ void removeNode(Node *n) {
 DataType const *search(DoubleList *list, DataType *data) {
   Node *n = list->head;
 
-  for (int i = 0; i < list->size; i++, n = n->next) {
+  for (int i = 0; i < list->size; i++, n = n->next)
     if (comp(n->info, data))
       return n->info;
+
+  return NULL;
+}
+
+DataType const *searchFrom(DoubleList *list, DataType *from, DataType *to) {
+  Node *n = list->head;
+
+  printf("Primeiro for\n");
+  for (int i = 0; i < list->size; i++, n = n->next) {
+    if (comp(n->info, from)) { // Primeiro acha o Node de inicio (from)
+        break;
+    }
+  }
+  for (int i = 0; i < list->size; i++, n = n->next) {
+      if (comp(n->info, to)) // Depois busca o Node de fim (to)
+          return n->info;
   }
 
   return NULL;
@@ -93,8 +110,9 @@ void destroy(DoubleList *list) {
 
   for (int i = 0; i < (list->size); i++,
            n = list->head, // Node n igual node atual
-           list->head = n->next, // Avanca a cabeca
-           free(n)); // free() no Node n anterrior
+                                    list->head = n->next, // Avanca a cabeca
+                                    free(n))
+    ; // free() no Node n anterrior
 
   create(list);
 }
